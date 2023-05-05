@@ -17,6 +17,7 @@ function Home() {
     function onchangeHandler(e) {
         setValue(e.target.value)
     }
+
     return (
         <>
             <div className='container'>
@@ -27,7 +28,9 @@ function Home() {
                 </form>
                 {
                     data ? (<div className='weather'>
-                        <h1>{data.name}</h1>
+                        <h1>{data.name}<span>
+                                <img src={`https://flagcdn.com/16x12/${data.sys.country.toLowerCase()}.png`}></img>
+                        </span></h1>
                         <h2> Temp:-{data.main.temp}</h2>
                         <h3>Description:-{data.weather[0].description}</h3>
                     </div>)
