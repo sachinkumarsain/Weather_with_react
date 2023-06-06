@@ -18,6 +18,9 @@ function Home() {
     function onchangeHandler(e) {
         setValue(e.target.value)
     }
+    function tempChange (){
+        return Math.floor(data.main.temp-273.15)
+    }
 
     return (
         <>
@@ -33,10 +36,12 @@ function Home() {
                         <h1>{data.name}<span>
                                 <img src={`https://flagcdn.com/60x45/${data.sys.country.toLowerCase()}.png`}></img>
                         </span></h1>
-                        <h2> Temp:-{data.main.temp}</h2>
+                        <h2> Temp: {tempChange()}°C</h2>
                         <h3>Description:-{data.weather[0].description}</h3>
                     </div>)
-                        : ("")
+                        : (<div className='weather'>
+                               
+                            </div>)
                 }
                </div>
             </div>
