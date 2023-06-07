@@ -28,7 +28,7 @@ function Home() {
                <div className='box'>
                <form onSubmit={submitForm}>
                     <h1>Weather</h1>
-                    <input type='text' placeholder='Enter place' onChange={onchangeHandler}></input><br/>
+                    <input type='text' placeholder='Enter place' onChange={onchangeHandler} autoFocus></input><br/>
                     <button type='submit'> submit</button>
                 </form>
                 {
@@ -36,12 +36,11 @@ function Home() {
                         <h1>{data.name}<span>
                                 <img src={`https://flagcdn.com/60x45/${data.sys.country.toLowerCase()}.png`}></img>
                         </span></h1>
-                        <h2> Temp: {tempChange()}°C</h2>
-                        <h3>Description:-{data.weather[0].description}</h3>
+                        <h2> Temp: {`${tempChange()}°C`}</h2>
+                        <h3>Description:-{`${data.weather[0].description}`}</h3>
+                        <h3>Humidity : {`${data.main.humidity}%`}</h3>
                     </div>)
-                        : (<div className='weather'>
-                               
-                            </div>)
+                        : ("")
                 }
                </div>
             </div>
